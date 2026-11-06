@@ -20,4 +20,4 @@ Settings → Pages → Source: rama `main`, carpeta `/ (root)`.
 
 ## Pendiente de completar
 
-- Los logos de clientes (Solfin y Coopesanramón) se cargan desde sus sitios oficiales. Para no depender de ellos, guarda los archivos en `assets/` y cambia el `src` de cada `<img>` en la sección `#clientes`.
+- Los logos de clientes (Solfin, Coopesanramón, MediAsis y TUWA PRO) se cargan desde sus sitios oficiales. Para no depender de ellos, guarda los archivos en `assets/` y cambia el `src` de cada `<img>` en la sección `#clientes`.
