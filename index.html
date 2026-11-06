@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Value Chain | Software, integraciones bancarias y fintech</title>
+<meta name="description" content="Value Chain: desarrollo de software a la medida, integraciones bancarias, outsourcing tecnológico y productos financieros digitales como internet banking, onboarding digital, la pasarela VPay y conectividad SINPE.">
+<meta property="og:title" content="Value Chain | Software, integraciones bancarias y fintech">
+<meta property="og:description" content="Ingeniería de software que conecta bancos, negocios y personas.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/mark-color.svg">
+<link rel="apple-touch-icon" href="assets/logo-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Space+Grotesk:wght@400..700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#100D18; --ink-2:#18142A; --ink-3:#221B3C; --line-d:#3A3060;
+  --paper:#F6F4FA; --white:#FFFFFF; --line-l:#E3DEEC;
+  --cyan:#C4B0F0; --violet:#9B7FD4; --violet-d:#6A4D92; --cyan-d:#6A4D92;
+  --muted-d:#C3BDD3; --muted-d2:#8A83A0; --muted-l:#4A5568;
+  --display:'Space Grotesk', Arial, sans-serif;
+  --text:'DM Sans', Arial, sans-serif;
+  --mono:'JetBrains Mono', 'Courier New', monospace;
+  --max:1200px; --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--text);background:var(--ink);color:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(32px,4.4vw,52px);font-weight:700}
+h3{font-size:24px;font-weight:700}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted-d);max-width:680px}
+section{padding:112px 0;position:relative}
+.light{background:var(--paper);color:var(--ink)}
+.light .lead{color:var(--muted-l)}
+.light .eyebrow{color:var(--violet-d)}
+.sec-head{display:flex;flex-direction:column;gap:18px;margin-bottom:56px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:999px;transition:transform .2s, box-shadow .2s, background .2s;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--cyan),var(--violet));color:var(--ink)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(196,176,240,.35)}
+.btn-ghost{border-color:var(--line-d);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+
+/* NAV */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s, border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(16,13,24,.85);backdrop-filter:blur(14px);border-color:var(--line-d)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.02em}
+.logo{font-family:'Quicksand', Arial, sans-serif}
+.logo .wm{font-weight:500;color:var(--paper);letter-spacing:0}
+.logo .wm b{color:var(--cyan);font-weight:700}
+.menu{display:flex;gap:32px;align-items:center;list-style:none}
+.menu a{font-size:15px;color:var(--muted-d);transition:color .2s}
+.menu a:hover{color:var(--paper)}
+.menu .btn{padding:10px 20px;font-size:14px;color:var(--ink)}
+.burger{display:none;background:none;border:0;color:var(--paper);width:44px;height:44px;cursor:pointer}
+@media (max-width:900px){
+  .burger{display:block}
+  .menu{position:fixed;top:76px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--ink);border-bottom:1px solid var(--line-d);padding:8px 24px 24px;transform:translateY(-120%);transition:transform .3s;z-index:-1}
+  .menu.open{transform:none}
+  .menu li{width:100%}
+  .menu a{display:block;padding:14px 0;font-size:17px;border-bottom:1px solid var(--ink-3)}
+  .menu .btn{margin-top:16px;display:inline-flex;border:0}
+}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 96px;background:radial-gradient(circle at 78% 30%, #2E2152 0%, var(--ink) 58%);overflow:hidden}
+.hero .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(196,176,240,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(196,176,240,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 70% 40%,#000 0%,transparent 70%);-webkit-mask-image:radial-gradient(circle at 70% 40%,#000 0%,transparent 70%)}
+.hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative}
+.hero h1{font-size:clamp(42px,5.6vw,76px);font-weight:700;letter-spacing:-.04em;margin:22px 0 24px}
+.hero h1 span{background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.chip{font-family:var(--mono);font-size:12px;color:var(--muted-d);border:1px solid var(--line-d);border-radius:999px;padding:7px 14px;background:rgba(17,24,51,.6)}
+.net{width:100%;max-width:440px;margin-left:auto;position:relative;aspect-ratio:140/147}
+.net img{position:relative;width:100%;height:auto;animation:float 6s ease-in-out infinite}
+.net .halo{position:absolute;inset:10%;border-radius:50%;background:radial-gradient(circle,rgba(155,127,212,.55),transparent 70%);filter:blur(40px);animation:glow 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes glow{0%,100%{opacity:.7}50%{opacity:1}}
+.net .pulse{animation:pulse 2.4s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+.net .flow{stroke-dasharray:6 10;animation:flow 3s linear infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.6)}}
+@keyframes flow{to{stroke-dashoffset:-64}}
+@media (max-width:900px){.hero-in{grid-template-columns:1fr}.net{max-width:240px;margin:0 auto;order:-1}}
+
+/* SERVICES OVERVIEW */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:linear-gradient(160deg,var(--ink-3),#140F24);border:1px solid var(--line-d);border-radius:var(--r);padding:36px;display:flex;flex-direction:column;gap:16px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--cyan)}
+.card .num{font-family:var(--mono);font-size:28px;color:var(--cyan)}
+.card:nth-child(2) .num{color:var(--violet)}
+.card p{color:var(--muted-d)}
+.card .more{margin-top:auto;font-weight:700;color:var(--cyan);font-size:15px}
+@media (max-width:900px){.cards3{grid-template-columns:1fr}}
+
+/* DETAIL BLOCKS */
+.detail{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.detail.rev{grid-template-columns:1.1fr .9fr}
+.detail.rev .d-text{order:2}
+.d-text{position:sticky;top:110px;display:flex;flex-direction:column;gap:20px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.f h4{font-size:19px}
+.f p{font-size:15px}
+.f .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center}
+.dark .f{background:var(--ink-2);border:1px solid var(--line-d)}
+.dark .f p{color:var(--muted-d)}
+.dark .f .ic{background:rgba(196,176,240,.12);color:var(--cyan)}
+.light .f{background:var(--white);border:1px solid var(--line-l)}
+.light .f p{color:var(--muted-l)}
+.light .f .ic{background:rgba(109,79,216,.1);color:var(--violet-d)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line-l);color:var(--muted-l);background:var(--white)}
+.dark .tag{border-color:var(--line-d);color:var(--muted-d);background:var(--ink-2)}
+@media (max-width:900px){.detail,.detail.rev{grid-template-columns:1fr;gap:36px}.detail.rev .d-text{order:0}.d-text{position:static}.feat{grid-template-columns:1fr}}
+
+/* FINTECH */
+.fintech{background:linear-gradient(140deg,#2B1C6B 0%,var(--ink) 65%)}
+.fintech .eyebrow{color:var(--violet)}
+.fintech .f{background:rgba(26,20,64,.8);border-color:#4A3A9A}
+.fintech .f p{color:#C9C2EE}
+.fintech .f .ic{background:rgba(155,127,212,.15);color:var(--violet)}
+.fintech .tag{border-color:#4A3A9A;background:rgba(26,20,64,.8);color:#C9C2EE}
+
+/* PRODUCTS */
+.prods{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.prod{border-radius:28px;padding:44px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+.prod.vpay{background:linear-gradient(160deg,#3A2A6B,#140F24);border:1px solid #5A47A0}
+.prod.sinpe{background:linear-gradient(160deg,#2B1C6B,#140F24);border:1px solid #4A3A9A}
+.prod h3{font-size:clamp(40px,5vw,60px);letter-spacing:-.03em}
+.prod .kind{font-family:var(--mono);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.prod.vpay .kind{color:var(--cyan)}.prod.sinpe .kind{color:var(--violet)}
+.prod p{color:var(--muted-d)}
+.prod ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.prod li{display:flex;gap:12px;align-items:flex-start;color:var(--paper)}
+.prod li::before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--cyan)}
+.prod.sinpe li::before{background:var(--violet)}
+.prod .glow{position:absolute;width:300px;height:300px;right:-100px;top:-100px;border-radius:50%;filter:blur(60px);opacity:.35}
+.prod.vpay .glow{background:var(--cyan)}.prod.sinpe .glow{background:var(--violet)}
+@media (max-width:900px){.prods{grid-template-columns:1fr}.prod{padding:32px}}
+
+/* PARTNERS */
+.partners{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.partner{background:var(--white);border:1px solid var(--line-l);border-radius:var(--r);padding:36px;display:flex;flex-direction:column;gap:16px;transition:box-shadow .25s,transform .25s}
+.partner:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(16,13,24,.08)}
+.partner .pname{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.partner .role{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--violet-d)}
+.partner p{color:var(--muted-l);font-size:15px}
+.partner ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.partner li{display:flex;gap:10px;color:var(--ink)}
+.partner li::before{content:"→";color:var(--violet-d);font-weight:700}
+.partner a.link{margin-top:auto;font-weight:700;color:var(--cyan-d);font-size:15px}
+.partner a.link:hover{text-decoration:underline}
+@media (max-width:900px){.partners{grid-template-columns:1fr}}
+
+/* CLIENTS */
+.clients{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.client{flex:0 1 300px;height:150px;display:grid;place-items:center;padding:28px 36px;border:1px solid var(--line-l);border-radius:var(--r);background:var(--white);transition:box-shadow .25s,transform .25s}
+.client:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(16,13,24,.08)}
+.client img{max-width:100%;max-height:80px;width:auto;height:auto;object-fit:contain}
+.client .cname{font-family:var(--display);font-size:26px;font-weight:700;color:var(--ink)}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{background:var(--ink-2);border:1px solid var(--line-d);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:12px;position:relative}
+.step .n{font-family:var(--display);font-size:52px;font-weight:700;line-height:1;background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.step p{color:var(--muted-d);font-size:15px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* WHY */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.why .f{background:var(--white);border:1px solid var(--line-l)}
+@media (max-width:900px){.why{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.why{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact{background:radial-gradient(circle at 20% 80%,#2E2152 0%,var(--ink) 60%);text-align:left}
+.contact-in{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.contact h2{font-size:clamp(36px,5.6vw,68px);letter-spacing:-.03em}
+.contact h2 span{color:var(--cyan)}
+.cbox{background:var(--ink-2);border:1px solid var(--line-d);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:18px}
+.crow{display:flex;gap:14px;align-items:center;font-size:17px}
+.crow .ic{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;background:rgba(155,127,212,.15);color:var(--violet)}
+@media (max-width:900px){.contact-in{grid-template-columns:1fr}}
+
+footer{background:var(--ink);border-top:1px solid var(--line-d);padding:40px 0;color:var(--muted-d2);font-size:14px}
+.foot{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.foot nav{display:flex;flex-wrap:wrap;gap:22px}
+.foot a:hover{color:var(--paper)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .net img,.net .halo{animation:none}
+  .card,.partner,.btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Íconos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-6 10 6"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.7-9h1.8a4.5 4.5 0 0 1 0 9Z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.9 2.9M16.9 16.9l2.9 2.9M1 12h4M19 12h4M4.2 19.8l2.9-2.9M16.9 7.1l2.9-2.9"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8Z"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2.5"/><path d="M14 10h4M14 14h4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+  <symbol id="i-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+</svg>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#inicio" class="logo" aria-label="Value Chain, inicio">
+      <img src="assets/mark-light.svg" alt="" width="34" height="36">
+      <span class="wm"><b>Value</b>Chain</span>
+    </a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#aliados">Aliados</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#contacto" class="btn btn-primary">Hablemos</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="rv">
+      <span class="eyebrow">Software · Integraciones · Fintech</span>
+      <h1>Ingeniería que conecta <span>bancos, negocios y personas</span></h1>
+      <p class="lead">Desarrollamos software a la medida, integramos sistemas bancarios y ponemos en marcha productos financieros digitales para que tu organización avance más rápido y con menos riesgo.</p>
+      <div class="cta">
+        <a href="#contacto" class="btn btn-primary">Agenda una conversación
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      </div>
+      <div class="chips">
+        <span class="chip">Integraciones bancarias</span><span class="chip">Internet banking</span><span class="chip">Onboarding digital</span><span class="chip">VPay</span><span class="chip">SINPE</span>
+      </div>
+    </div>
+    <div class="net rv"><span class="halo" aria-hidden="true"></span><img src="assets/mark-light.svg" alt="Símbolo de Value Chain"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="light" id="nosotros">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Quiénes somos</span>
+      <h2>Tu socio tecnológico para construir, integrar y escalar</h2>
+      <p class="lead">Somos una empresa de software especializada en el sector financiero y en soluciones a la medida. Unimos experiencia bancaria con ingeniería moderna y un ecosistema de aliados para entregar soluciones completas.</p>
+    </div>
+    <div class="why">
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-bank"/></svg></div><h4>ADN financiero</h4><p>Conocemos la banca, los pagos y la regulación desde dentro.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-shield"/></svg></div><h4>Seguridad primero</h4><p>Buenas prácticas de seguridad y calidad en cada línea de código.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-link"/></svg></div><h4>Ecosistema de aliados</h4><p>Trabajamos con socios especializados en infraestructura, banca digital y pagos.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-bolt"/></svg></div><h4>Entrega ágil</h4><p>Iteraciones cortas, demos frecuentes y visibilidad total del avance.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OVERVIEW -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Qué hacemos</span>
+      <h2>Tres formas de impulsar tu negocio</h2>
+    </div>
+    <div class="cards3">
+      <a href="#desarrollo" class="card rv"><span class="num">01</span><h3>Desarrollo a la medida</h3><p>Sistemas, plataformas e integraciones bancarias construidas para tus procesos.</p><span class="more">Ver detalle →</span></a>
+      <a href="#outsourcing" class="card rv"><span class="num">02</span><h3>Outsourcing tecnológico</h3><p>Talento especializado que se integra a tu equipo desde el primer día.</p><span class="more">Ver detalle →</span></a>
+      <a href="#financieros" class="card rv"><span class="num">03</span><h3>Productos financieros digitales</h3><p>Internet banking, onboarding digital, la pasarela VPay y conectividad SINPE.</p><span class="more">Ver detalle →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 DESARROLLO -->
+<section class="dark" id="desarrollo" style="background:var(--ink-2)">
+  <div class="wrap detail">
+    <div class="d-text rv">
+      <span class="eyebrow">01 · Desarrollo a la medida</span>
+      <h2>Software que encaja con tu operación</h2>
+      <p class="lead">Diseñamos y construimos sistemas de punta a punta, desde la arquitectura hasta la puesta en producción, con foco en integraciones críticas donde la disponibilidad y la seguridad no se negocian.</p>
+      <div class="tags"><span class="tag">APIs REST</span><span class="tag">Microservicios</span><span class="tag">Cloud</span><span class="tag">Web y móvil</span><span class="tag">QA automatizado</span></div>
+    </div>
+    <div class="feat">
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-bank"/></svg></div><h4>Integraciones bancarias</h4><p>Conexión con core bancario, procesadores, medios de pago y entidades reguladas.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-link"/></svg></div><h4>APIs y middleware</h4><p>Capas de integración, conectores y orquestación entre sistemas heterogéneos.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-code"/></svg></div><h4>Plataformas empresariales</h4><p>Aplicaciones web y back-office a la medida de tus procesos de negocio.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-phone"/></svg></div><h4>Apps móviles</h4><p>Experiencias nativas e híbridas con foco en usabilidad y seguridad.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-cloud"/></svg></div><h4>Modernización</h4><p>Evolución de sistemas legados y migración a arquitecturas en la nube.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-db"/></svg></div><h4>Datos e integración</h4><p>Procesos de datos, reportería y sincronización confiable de información.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 OUTSOURCING -->
+<section class="light" id="outsourcing">
+  <div class="wrap detail rev">
+    <div class="d-text rv">
+      <span class="eyebrow">02 · Outsourcing tecnológico</span>
+      <h2>El talento que necesitas, cuando lo necesitas</h2>
+      <p class="lead">Escala tu capacidad de desarrollo sin los tiempos ni los costos de contratar. Nos encargamos de la selección, la gestión y la continuidad del equipo para que tú te enfoques en el producto.</p>
+      <div class="tags"><span class="tag">Desarrollo</span><span class="tag">QA</span><span class="tag">Arquitectura</span><span class="tag">DevOps</span><span class="tag">Análisis de negocio</span></div>
+    </div>
+    <div class="feat">
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-users"/></svg></div><h4>Staff augmentation</h4><p>Profesionales que se suman a tu equipo bajo tu liderazgo y tu metodología.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-team"/></svg></div><h4>Equipos dedicados</h4><p>Células ágiles completas que entregan producto con objetivos y métricas claras.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-check"/></svg></div><h4>Proyectos llave en mano</h4><p>Asumimos el alcance completo: análisis, construcción, pruebas y despliegue.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-wrench"/></svg></div><h4>Soporte y operación</h4><p>Mantenimiento evolutivo, soporte de aplicaciones y continuidad operativa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FINANCIEROS -->
+<section class="dark fintech" id="financieros">
+  <div class="wrap detail">
+    <div class="d-text rv">
+      <span class="eyebrow">03 · Productos financieros digitales</span>
+      <h2>Banca digital lista para tus clientes</h2>
+      <p class="lead">Ponemos en marcha canales digitales para bancos, cooperativas, financieras y fintechs, combinando nuestras soluciones con las de nuestros aliados para reducir tiempos de salida al mercado.</p>
+      <div class="tags"><span class="tag">Bancos</span><span class="tag">Cooperativas</span><span class="tag">Financieras</span><span class="tag">Fintechs</span></div>
+    </div>
+    <div class="feat">
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-bank"/></svg></div><h4>Internet banking</h4><p>Banca en línea y móvil para personas y empresas: consultas, transferencias y pagos.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-id"/></svg></div><h4>Onboarding digital</h4><p>Apertura de cuentas 100% en línea con validación de identidad, KYC y firma digital.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-lock"/></svg></div><h4>Autenticación segura</h4><p>Doble factor, biometría y firma digital para proteger cada operación.</p></div>
+      <div class="f rv"><div class="ic"><svg width="22" height="22"><use href="#i-card"/></svg></div><h4>Pagos y tarjetas</h4><p>Cobros, desembolsos, emisión de tarjetas y apps de marca blanca con nuestros aliados.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Productos</span>
+      <h2>Pagos conectados, de punta a punta</h2>
+      <p class="lead">Soluciones listas para integrar, pensadas para comercios, plataformas y entidades financieras.</p>
+    </div>
+    <div class="prods">
+      <article class="prod vpay rv">
+        <div class="glow" aria-hidden="true"></div>
+        <span class="kind">Pasarela de pagos</span>
+        <h3>VPay</h3>
+        <p>Acepta pagos en línea de forma segura e intégralos fácilmente con tu comercio, app o plataforma.</p>
+        <ul>
+          <li>Integración por API con tu sitio, app o sistema</li>
+          <li>Cobros en línea seguros para tus clientes</li>
+          <li>Visibilidad de transacciones y conciliación</li>
+        </ul>
+      </article>
+      <article class="prod sinpe rv">
+        <div class="glow" aria-hidden="true"></div>
+        <span class="kind">Conectividad vía Solfin</span>
+        <h3>SINPE</h3>
+        <p>Conexión al Sistema Nacional de Pagos Electrónicos de Costa Rica a través de la entidad Solfin.</p>
+        <ul>
+          <li>Acceso a pagos electrónicos del sistema nacional</li>
+          <li>Conectividad a través de una entidad regulada</li>
+          <li>Integración con tus sistemas y canales actuales</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ALIADOS -->
+<section class="light" id="aliados">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Aliados estratégicos</span>
+      <h2>Un ecosistema para llegar más lejos</h2>
+      <p class="lead">Nos apoyamos en socios líderes de la región para ofrecer soluciones completas y probadas en el sector financiero.</p>
+    </div>
+    <div class="partners">
+      <article class="partner rv">
+        <span class="role">Proveedor · Infraestructura financiera</span>
+        <span class="pname">Solfin</span>
+        <p>Infraestructura financiera regulada en Costa Rica, con pagos, tarjetas y crédito integrados mediante APIs. Es nuestra entidad para la conectividad SINPE.</p>
+        <ul><li>Emisión de tarjetas Mastercard</li><li>Cobros y desembolsos</li><li>Apps de marca blanca</li></ul>
+        <a class="link" href="https://solfin.cr/" target="_blank" rel="noopener">solfin.cr ↗</a>
+      </article>
+      <article class="partner rv">
+        <span class="role">Partner · Soluciones fintech</span>
+        <span class="pname">In-Novative</span>
+        <p>Empresa de software para fintechs y entidades financieras, enfocada en su transformación digital.</p>
+        <ul><li>NovaMP SINPE</li><li>NovaToken (doble factor)</li><li>NovaSign (firma digital)</li><li>Biometría facial</li></ul>
+        <a class="link" href="https://www.in-novative.com/" target="_blank" rel="noopener">in-novative.com ↗</a>
+      </article>
+      <article class="partner rv">
+        <span class="role">Partner · Banca digital</span>
+        <span class="pname">iuvity</span>
+        <p>Proveedor de soluciones digitales para instituciones financieras, con presencia en varios países de Latinoamérica.</p>
+        <ul><li>iuviOPEN, plataforma financiera modular</li><li>Canales digitales bancarios</li><li>Prevención de fraude y analítica</li></ul>
+        <a class="link" href="https://iuvity.com/es/" target="_blank" rel="noopener">iuvity.com ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes" style="background:var(--white);color:var(--ink);padding:96px 0">
+  <div class="wrap">
+    <div class="sec-head rv" style="align-items:center;text-align:center;margin-bottom:48px">
+      <span class="eyebrow" style="color:var(--violet-d)">Nuestros clientes</span>
+      <h2>Confían en nosotros</h2>
+    </div>
+    <div class="clients">
+      <a class="client rv" href="https://solfin.cr/" target="_blank" rel="noopener" aria-label="Solfin">
+        <img src="https://solfin.cr/assets/logo-solfin-zWtlgx6b.webp" alt="Solfin" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'cname',textContent:'Solfin'}))">
+      </a>
+      <a class="client rv" href="https://www.coopesanramon.fi.cr/" target="_blank" rel="noopener" aria-label="Coopesanramón">
+        <img src="https://www.coopesanramon.fi.cr/assets/images/svg/coope-logo.svg" alt="Coopesanramón" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'cname',textContent:'Coopesanramón'}))">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>De la idea a producción, sin fricción</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span><h3>Descubrir</h3><p>Entendemos tu negocio, tus procesos y tus objetivos.</p></div>
+      <div class="step rv"><span class="n">02</span><h3>Diseñar</h3><p>Definimos arquitectura, experiencia de usuario y plan de entregas.</p></div>
+      <div class="step rv"><span class="n">03</span><h3>Construir</h3><p>Sprints ágiles con demos frecuentes y QA continuo.</p></div>
+      <div class="step rv"><span class="n">04</span><h3>Operar</h3><p>Despliegue, monitoreo y evolución del producto.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="eyebrow">Hablemos</span>
+      <h2 style="margin:20px 0 24px">¿Construimos tu próximo <span>proyecto</span>?</h2>
+      <p class="lead">Cuéntanos qué necesitas y te proponemos el camino más directo para lograrlo.</p>
+      <div class="cta" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:32px">
+        <a href="mailto:correo@valuechain.com?subject=Consulta%20desde%20el%20sitio%20web" class="btn btn-primary">Escríbenos</a>
+      </div>
+    </div>
+    <div class="cbox rv">
+      <a class="crow" href="mailto:correo@valuechain.com"><span class="ic"><svg width="22" height="22"><use href="#i-mail"/></svg></span>correo@valuechain.com</a>
+      <a class="crow" href="tel:+50600000000"><span class="ic"><svg width="22" height="22"><use href="#i-chat"/></svg></span>+506 0000 0000</a>
+      <div class="crow"><span class="ic"><svg width="22" height="22"><use href="#i-pin"/></svg></span>Ciudad, País</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/logo-light.svg" alt="Value Chain" width="108" height="100">
+    <span>© <span id="yr">2026</span> Value Chain. Todos los derechos reservados.</span>
+    <nav aria-label="Pie de página"><a href="#servicios">Servicios</a><a href="#productos">Productos</a><a href="#aliados">Aliados</a><a href="#contacto">Contacto</a></nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var h=document.querySelector('header'), b=document.querySelector('.burger'), m=document.getElementById('menu');
+  function onScroll(){h.classList.toggle('scrolled', window.scrollY>20)}
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded','false')})});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  } else { els.forEach(function(el){el.classList.add('in')}); }
+})();
+</script>
+</body>
+</html>
