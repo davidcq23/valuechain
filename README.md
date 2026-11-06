@@ -20,5 +20,5 @@ Settings → Pages → Source: rama `main`, carpeta `/ (root)`.
 
 ## Pendiente de completar
 
-- Correo, teléfono y ciudad en la sección de contacto (`correo@valuechain.com`, `+506 0000 0000`, `Ciudad, País`).
+- Teléfono en la sección de contacto (`+506 0000 0000`).
 - Los logos de clientes (Solfin y Coopesanramón) se cargan desde sus sitios oficiales. Para no depender de ellos, guarda los archivos en `assets/` y cambia el `src` de cada `<img>` en la sección `#clientes`.
