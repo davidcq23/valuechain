@@ -20,5 +20,4 @@ Settings → Pages → Source: rama `main`, carpeta `/ (root)`.
 
 ## Pendiente de completar
 
-- Teléfono en la sección de contacto (`+506 0000 0000`).
 - Los logos de clientes (Solfin y Coopesanramón) se cargan desde sus sitios oficiales. Para no depender de ellos, guarda los archivos en `assets/` y cambia el `src` de cada `<img>` en la sección `#clientes`.
